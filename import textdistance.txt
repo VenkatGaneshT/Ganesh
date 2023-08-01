@@ -1,0 +1,13 @@
+import textdistance
+
+# Sample dictionary of words
+dictionary = ["apple", "banana", "orange", "grape", "pear"]
+
+def spell_checker(word, dictionary):
+    closest_word = min(dictionary, key=lambda x: textdistance.levenshtein.normalized_distance(word, x))
+    return closest_word
+
+# Test the spell checker
+misspelled_word = "bananna"
+nearest_word = spell_checker(misspelled_word, dictionary)
+print(f"The nearest word to '{misspelled_word}' is '{nearest_word}'.")
